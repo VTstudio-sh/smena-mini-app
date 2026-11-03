@@ -1,0 +1,248 @@
+/* Базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-color: var(--tg-theme-bg-color, #f4f4f5);
+    --text-color: var(--tg-theme-text-color, #000000);
+    --hint-color: var(--tg-theme-hint-color, #707579);
+    --blue: #0A66FF; /* Твой фирменный цвет */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Поддержка темной темы */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: var(--tg-theme-bg-color, #000000);
+        --text-color: var(--tg-theme-text-color, #ffffff);
+        --glass-bg: rgba(30, 30, 30, 0.65);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+/* Эффект жидкого стекла */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Экраны */
+.screen {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--blue);
+}
+
+/* Контент */
+.content {
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* Карточки вакансий */
+.job-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.job-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.location, .time {
+    font-size: 14px;
+    color: var(--hint-color);
+    margin-bottom: 4px;
+}
+
+.time {
+    color: var(--blue);
+    margin-bottom: 16px;
+}
+
+.btn-apply {
+    width: 100%;
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-apply:active {
+    opacity: 0.8;
+}
+
+/* Профиль */
+.profile-card {
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.profile-card h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.status {
+    font-size: 13px;
+    color: var(--hint-color);
+}
+
+/* Настройки */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.status-badge.success {
+    background: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* НИЖНЕЕ МЕНЮ (Жидкое стекло) */
+.bottom-nav {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 400px;
+    height: 64px;
+    border-radius: 32px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--hint-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.nav-btn i {
+    font-size: 24px;
+}
+
+.nav-btn span {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.nav-btn.active {
+    color: var(--blue);
+}
