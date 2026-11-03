@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Smena Job</title>
+    <!-- Скрипт Telegram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Иконки (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Наши стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ЭКРАН 1: СПИСОК СМЕН -->
+    <main id="screen-jobs" class="screen active">
+        <header class="header">
+            <div class="logo">Smena Job</div>
+            <div class="city">📍 Москва</div>
+        </header>
+
+        <div class="content">
+            <h1 class="section-title">Доступные смены</h1>
+            
+            <!-- Карточка -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Сборщик заказов</h2>
+                    <span class="price">2 500 ₽</span>
+                </div>
+                <p class="location">Магнит, ул. Ленина, 10</p>
+                <p class="time">Завтра, 08:00 – 17:00</p>
+                <button class="btn-apply">Откликнуться</button>
+            </div>
+
+            <!-- Карточка -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h2>Выкладка товара</h2>
+                    <span class="price">2 200 ₽</span>
+                </div>
+                <p class="location">Пятёрочка, пр. Мира, 45</p>
+                <p class="time">Сегодня, 14:00 – 22:00</p>
+                <button class="btn-apply">Откликнуться</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ЭКРАН 2: ПРОФИЛЬ -->
+    <main id="screen-profile" class="screen">
+        <header class="header">
+            <div class="logo">Мой профиль</div>
+        </header>
+        <div class="content">
+            <div class="profile-card glass">
+                <div class="avatar-placeholder">И</div>
+                <h2>Иван Иванов</h2>
+                <p class="status">Telegram ID: 12345678</p>
+            </div>
+
+            <div class="settings-list">
+                <div class="setting-item glass">
+                    <span>Паспортные данные</span>
+                    <span class="status-badge success">Загружен</span>
+                </div>
+                <div class="setting-item glass">
+                    <span>Мои отклики</span>
+                    <i class="ph ph-caret-right"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- НИЖНЕЕ МЕНЮ (Жидкое стекло) -->
+    <nav class="bottom-nav glass">
+        <button class="nav-btn active" onclick="switchScreen('screen-jobs', this)">
+            <i class="ph ph-briefcase"></i>
+            <span>Смены</span>
+        </button>
+        <button class="nav-btn" onclick="switchScreen('screen-profile', this)">
+            <i class="ph ph-user"></i>
+            <span>Профиль</span>
+        </button>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
